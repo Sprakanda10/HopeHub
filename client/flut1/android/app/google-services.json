@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "129962059793",
+    "project_id": "hopehub-d7df0",
+    "storage_bucket": "hopehub-d7df0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129962059793:android:6e2282a13bd7ba92a129b0",
+        "android_client_info": {
+          "package_name": "com.example.flut1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8udqUq9dTA01xq5Ql0fTdiSzvYg-M8vM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,19 +1,25 @@
+import 'package:flut1/core/common/sign_in_btn.dart';
+import 'package:flut1/core/constants/constants.dart';
 import 'package:flut1/core/theme/app_pallete.dart';
+
 import 'package:flut1/features/auth/repositories/auth_remote_repository.dart';
 import 'package:flut1/features/auth/view/pages/login_page.dart';
 import 'package:flut1/features/auth/view/widgets/auth_gradient_button.dart';
 import 'package:flut1/features/auth/view/widgets/custom_field.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SignupPage extends StatefulWidget {
+import 'package:fpdart/fpdart.dart';
+
+class SignupPage extends ConsumerStatefulWidget {
   const SignupPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  ConsumerState<SignupPage> createState() => _SignupPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _SignupPageState extends ConsumerState<SignupPage> {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -30,7 +36,13 @@ class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Image.asset(
+          Constants.logoPath,
+          height: 80,
+          alignment: Alignment.centerLeft,
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Form(
@@ -61,15 +73,23 @@ class _SignupPageState extends State<SignupPage> {
                     email: emailController.text,
                     password: passwordController.text,
                   );
-                  print(res);
+                  final val = switch (res) {
+                    Left(value: final l) => l,
+                    Right(value: final r) => r.toString(),
+                  };
+                  print(val);
                 },
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
+
+              SignInBtn(ref: ref),
+
+              const SizedBox(height: 30),
 
               RichText(
                 text: TextSpan(
                   text: 'By continuing you agree to our ',
-                  style: TextStyle(color: Colors.black54, fontSize: 16),
+                  style: TextStyle(color: Colors.white, fontSize: 16),
                   children: [
                     TextSpan(
                       text: 'Terms and Conditions ',
@@ -80,12 +100,12 @@ class _SignupPageState extends State<SignupPage> {
                               showTCBottomSheet(context);
                             },
                     ),
-                    TextSpan(text: 'and '),
-                    TextSpan(
-                      text: "Privacy and Policy",
-                      style: TextStyle(color: Colors.blue),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
-                    ),
+                    // TextSpan(text: 'and '),
+                    // TextSpan(
+                    //   text: "Privacy and Policy",
+                    //   style: TextStyle(color: Colors.blue),
+                    //   recognizer: TapGestureRecognizer()..onTap = () {},
+                    // ),
                   ],
                 ),
               ),
