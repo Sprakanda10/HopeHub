@@ -77,7 +77,7 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel(name: $name, email: $email, id: $id, profilePic: $profilePic, banner: $banner, isAuthenticated: $isAuthenticated, hope: $hope, awards: $awards)';
+    return 'UserModel(name: $name, email: $email, id: $uid, profilePic: $profilePic, banner: $banner, isAuthenticated: $isAuthenticated, hope: $hope, awards: $awards)';
   }
 
   @override
