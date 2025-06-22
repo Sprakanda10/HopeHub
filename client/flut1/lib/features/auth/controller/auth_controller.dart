@@ -1,4 +1,5 @@
 import 'package:flut1/features/auth/repositories/auth_remote_repository.dart';
+import 'package:flut1/features/auth/repositories/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final authControllerProvider = Provider(
